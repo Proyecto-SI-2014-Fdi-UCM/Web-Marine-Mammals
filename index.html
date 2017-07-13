@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/styleIndexLogin.css">
+  <link rel="stylesheet" href="css/stylesFontsLogin.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Activamos el código Javascript de Bootstrap y de jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+</head>
+<script>
+  function validate(){
+    var user=document.getElementById('username').value;
+    var pass=document.getElementById('password').value
+    $.ajax({
+      type: "POST",
+      url: "check_login.php",
+      data: {"username":user, "password":pass},
+      success: function(sol){
+        //alert(user);
+        $('#message_error').html(sol);
+      }
+    });
+  }
+
+</script>
+<body>
+  <div class="container">
+    <h1>Marine Mammals Formulary</h1>  
+    <div class="center-container">
+      <div class="row">
+        <div class="col-xs-3 col-md-4"> 
+        </div>  
+        <div class="col-xs-6 col-md-4">    
+          <div class="login-wrap">
+            <h2>Login</h2>
+            <!--<div class="form" method="POST" action="return false" onsubmit="return false">-->
+            <div class="form" method="POST" action="return false" onsubmit="return false">
+              <input id="username" type="text" placeholder="Username" name="un" />
+              <input id="password" type="password" placeholder="Password" name="pw" />
+              <button onclick="javascrip:validate()"> Sign in </button>
+              <a href="register.php">
+                <p> Don't have an account? Register </p>
+              </a>
+            </div>
+         </div> 
+       </div> 
+       <div class="col-xs-3 col-md-4"> 
+       </div>
+      </div>
+      <div id="message_error"></div>
+    </div>
+  </div>
+  <footer>
+  </footer>
+</body>
+</html>
