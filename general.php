@@ -1,3 +1,14 @@
+<?php
+session_start();
+$username=$_SESSION['username'];
+$password=$_SESSION['password'];
+//Descomentar esto para conectar con el servidor
+          $con = mysqli_connect ("localhost","ForMMulary","wfGr42&7","marinemammalformulary_",3306);
+            //$con = mysqli_connect ("localhost","root","","marinemammalformulary_");
+            if (mysqli_connect_errno ($con)){
+            echo "No se pudo conectar a MySQL: " . mysqli_connect_error ();
+          }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -404,8 +415,12 @@ function insert_code(){
     
 </head>
 <?php
-session_start();
-if($_SESSION['username']=='administrator'){?>
+$sql1 = "SELECT perfil FROM User WHERE user_name='$username' and password='$password' and checked=1";
+  $result1=mysqli_query($con,$sql1);
+  $perfil=mysqli_fetch_row($result1);
+  if(!strcmp($perfil[0], "A")) {?>
+
+<!--if($_SESSION['username']=='administrator'){?>-->
   <body onload="generate_navbar_admin()">
 <?php }else{ ?>
   <body>
@@ -548,10 +563,11 @@ if($_SESSION['username']=='administrator'){?>
             $drug_name = $_GET['drug_name'];
 
           //Descomentar esto para conectar con el servidor
-          $con = mysqli_connect ("localhost","ForMMulary","wfGr42&7","marinemammalformulary_",3306);
-            if (mysqli_connect_errno ($con)){
-            echo "No se pudo conectar a MySQL: " . mysqli_connect_error ();
-          }
+          //$con = mysqli_connect ("localhost","ForMMulary","wfGr42&7","marinemammalformulary_",3306);
+          //  $con = mysqli_connect ("localhost","root","","marinemammalformulary_");
+          //  if (mysqli_connect_errno ($con)){
+          //  echo "No se pudo conectar a MySQL: " . mysqli_connect_error ();
+          //}
 
           $query = "SELECT description, available, license_AEMPS, license_EMA, license_FDA FROM DRUG WHERE drug_name = '$drug_name'";
           $result = mysqli_query($con,$query);   

@@ -19,6 +19,7 @@
 </head>
 <?php
 include('config_db.php');
+//$perfil=$_GET['perfil'];
 session_start();
 ?>
 
@@ -43,10 +44,12 @@ session_start();
 	function showDrugFirstLetters(letter){
 
 		selected=letter;
+
 		$.ajax({
 	      	type: "POST",
 	      	url: "showDrugFirstLetters.php",
-	      	data: { "letter" : letter},
+	      	//data: { "letter" : letter, "perfil":"<?php //echo $perfil;?>"},
+          data: { "letter" : letter},
 	        success: function(sol){
 	        	//alert(sol);
 	        	jQuery('#drug_table_div').html(sol);

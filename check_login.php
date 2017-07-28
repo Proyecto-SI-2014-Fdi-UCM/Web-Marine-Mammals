@@ -22,7 +22,14 @@ if($count==1){
 	$sql1 = "SELECT * FROM User WHERE user_name='$username' and password='$password' and checked=1";
 	$result1=mysqli_query($con,$sql1);
 	$count1=mysqli_num_rows($result1);
-	if($count1==1){
+	//$perfil=$result1['perfil'];
+	//while ($fila = mysqli_fetch_row($resultado)) {
+	while($rows=mysqli_fetch_row($result1)){ 
+		//Se guarda el campo perfil para pasarlo a forMMulary.php
+		$perfil=$rows[9];
+	}
+	if($count1==1){		
+		//Se pasan datos de sesión
 		$_SESSION['loggedin']=true;
 		$_SESSION['username']=$username;
 		$_SESSION['password']=$password;
@@ -33,6 +40,7 @@ if($count==1){
 		}*/
 
 		echo '<script>location.href = "forMMulary.php"</script>';
+		//echo "<script>location.href = \"forMMulary.php?perfil=".$perfil."\"</script>";
 			//header("location: forMMulary_admin.php");
 		/*}
 		else{

@@ -3,6 +3,10 @@
 session_start();
 include('config_db.php');
 $letter=$_POST["letter"];
+$username=$_SESSION['username'];
+$password=$_SESSION['password'];
+
+//$perfil=$_POST["perfil"];
 
 if (!strcmp($letter, "ALL")) {
 	$sql = "SELECT * FROM DRUG";
@@ -27,12 +31,18 @@ echo "<tbody>";
 
 
 while ($row=mysqli_fetch_row($result)) {
-$contador=$contador+3;
+    $contador=$contador+3;
 	echo "<tr>";
     echo "<td class=\"drug_name\">".$row[0]."</td>";
     echo "<td class=\"drug_description\">".$row[1] ."</td>";
     echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
-    if($_SESSION['username']=='administrator'){
+    //if($_SESSION['username']=='administrator'){
+    //if(!strcmp($perfil, "A")){
+    $sql1 = "SELECT perfil FROM User WHERE user_name='$username' and password='$password' and checked=1";
+  $result1=mysqli_query($con,$sql1);
+  $perfil=mysqli_fetch_row($result1);
+  if(!strcmp($perfil[0], "A")) {
+
         //echo "<a class=\"remove-drug\" href=\"#\" onclick=\"javascrip:deleteDrug('".$contador."')\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
         echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
         echo '<script>generate_navbar_admin();</script>';
