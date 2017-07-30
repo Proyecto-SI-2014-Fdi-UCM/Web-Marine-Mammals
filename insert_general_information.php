@@ -37,7 +37,7 @@
 		}
 		
 		if (strcmp($drug_name,"") && strcmp($anatomic_group,"Anatomic Target (1st level ATCvet)") && strcmp($therapeutic_group,"") && strcmp($code,"")) {
-			$general_info = "INSERT INTO DRUG(drug_name, description, available, license_AEMPS, license_EMA, license_FDA) VALUES ('$drug_name','$description','$available', '$license_AEMPS', '$license_EMA', '$license_FDA')";
+			$general_info = "INSERT INTO DRUG(drug_name, description, available, license_AEMPS, license_EMA, license_FDA,co_estado) VALUES ('$drug_name','$description','$available', '$license_AEMPS', '$license_EMA', '$license_FDA','ED')";
 			$general_info_result = mysqli_query($con,$general_info);
 			/*for ($i=0;$i<count($codes);$i++) {
 				$code = $codes[$i];

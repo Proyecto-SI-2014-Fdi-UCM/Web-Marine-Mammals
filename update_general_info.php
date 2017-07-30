@@ -46,8 +46,8 @@
 					$delete_animal_result = mysqli_query($con,$delete_animal);
 					$delete_general_information = "DELETE FROM DRUG WHERE drug_name='$old_drug'";
 					$delete_general_information_result = mysqli_query($con,$delete_general_information);
-					$insert_general_information = "INSERT INTO DRUG(drug_name,description,available,license_AEMPS,license_EMA,license_FDA) 
-					VALUES ('$drug_name','$description','$available','$license_AEMPS','$license_EMA','$license_FDA')";
+					$insert_general_information = "INSERT INTO DRUG(drug_name,description,available,license_AEMPS,license_EMA,license_FDA,co_estado) 
+					VALUES ('$drug_name','$description','$available','$license_AEMPS','$license_EMA','$license_FDA','ED')";
 					$insert_general_information_result = mysqli_query($con,$insert_general_information);
 					$i = 0;
 					while ($row_codes = mysqli_fetch_row($old_codes_result)) {

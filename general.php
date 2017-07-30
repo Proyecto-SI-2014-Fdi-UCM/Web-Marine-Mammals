@@ -4,7 +4,7 @@ $username=$_SESSION['username'];
 $password=$_SESSION['password'];
 //Descomentar esto para conectar con el servidor
           $con = mysqli_connect ("localhost","ForMMulary","wfGr42&7","marinemammalformulary_",3306);
-            //$con = mysqli_connect ("localhost","root","","marinemammalformulary_");
+          //$con = mysqli_connect ("localhost","root","","marinemammalformulary_");
             if (mysqli_connect_errno ($con)){
             echo "No se pudo conectar a MySQL: " . mysqli_connect_error ();
           }
