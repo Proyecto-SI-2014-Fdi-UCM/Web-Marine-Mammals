@@ -1,0 +1,160 @@
+body{
+  background-image: url(../images/seamless_paper_texture.png);
+  
+}
+
+h1{
+  text-align: center;
+  font-size: 2.5em;
+  font-family:'nouvelle_vagunouvellevagueBlk';
+  /*color: #2476ba;*/
+  color: #4e4e4e;
+}
+
+html .login-wrap {
+  position: relative;
+  margin: 0 auto ;
+  background-image: url(../images/mooning.png);
+  /*width: 350px;*/
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #333; 
+}
+
+html .login-wrap h2 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 10px;
+  color: #636b65;
+}
+
+html .login-wrap .form {
+  padding-top: 20px;
+}
+
+html .login-wrap .form input[type="text"],
+html .login-wrap .form input[type="password"],
+html .login-wrap .form button {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 25px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+}
+
+html .login-wrap .form input[type="text"],
+html .login-wrap .form input[type="password"] {
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+
+html .login-wrap .form input[type="text"]:focus,
+html .login-wrap .form input[type="password"]:focus {
+  border: 1px solid #3498db;
+}
+
+html .login-wrap .form a {
+  text-align: center;
+  /*font-size: 10px;*/
+  font-size: 0.8em;
+  color: #393d3a;
+
+}
+
+html .login-wrap .form a p {
+  padding-bottom: 10px;
+}
+
+html .login-wrap .form button {
+  background: #2476ba;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
+}
+
+html .login-wrap .form button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+
+html .login-wrap .form button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+
+html .login-wrap:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-linear-gradient(left,#0bea71,#2476ba);
+  background: -moz-linear-gradient(left, #0bea71,#2476ba);
+  height: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+
+.carousel{
+    margin-top: 20px;
+    width: 80%;
+    height: 100%;
+}
+
+.carousel-inner .item{
+    margin:0px;
+}
+
+.bs-example{
+  margin: 20px;
+}
+
+.center-container{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.row{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+footer{
+  background-image:url(../images/tweed.png);
+  position: absolute;
+  bottom: 0;
+  height: 8%; 
+  width: 100%;
+  
+}
+
+.message_error {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+color: #D8000C;
+text-align: center;
+/*border-color: #2476ba;*/
+/*background-color: #FFBABA;*/
+
+}

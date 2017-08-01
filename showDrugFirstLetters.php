@@ -32,7 +32,14 @@ echo "<tbody>";
 
 while ($row=mysqli_fetch_row($result)) {
     $contador=$contador+3;
-	echo "<tr>";
+    //Si el estado es "ED" poner en color amarillo p. ej.
+    if (!strcmp($row[6],"ED")){
+	   echo "<tr bgcolor='#fcf8e3'>";
+    }
+    else{
+        echo "<tr>";
+    }
+
     echo "<td class=\"drug_name\">".$row[0]."</td>";
     echo "<td class=\"drug_description\">".$row[1] ."</td>";
     echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";

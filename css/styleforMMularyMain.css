@@ -1,0 +1,96 @@
+body {
+	background-image: url(../images/seamless_paper_texture.png);
+}
+
+#myCarousel, .carousel .carousel-inner img {
+	height: 200px;
+}
+
+.navbar-nav > .active > a, .navbar-nav > li > a {
+	width: 150px;
+	text-align: center;
+}
+
+.input-group-btn > .btn-primary, .input-group-btn > .btn-primary:hover {
+	background-color: lightgrey;
+	color:black;
+	border-color: transparent;
+}
+
+.glyphicon-log-out {
+	color:white;
+	font-size: 20px;
+	padding-right: 10px;
+	padding-top: 13px;
+}
+
+.add, .add:hover, .add:visited {
+	background-color: black;
+	border-color: transparent;
+}
+
+.pages {
+	margin: 0 auto;
+	width: 60%;
+	list-style: none;
+}
+
+.pages > li {
+	margin-top: 20px;
+}
+
+.pages > li > .separate {
+	color: black;
+	margin-left: 8px;
+}
+
+.table-hover {
+	margin-top: 40px;
+}
+
+.table-hover > thead > tr > td {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.table-hover > thead > tr > .drug_name {
+	width: 70px;
+}
+
+.table-hover > thead > tr > .drug_description {
+	width: 100px;
+}
+
+.table-hover > thead > tr > .icons {
+	width: 50px;
+}
+
+.table-hover > tbody > tr > td {
+	font-size: 15px;
+}
+
+.table-hover > tbody > tr > .drug_name {
+	width: 70px;
+	text-align: center;
+}
+
+.table-hover > tbody > tr > .drug_description {
+	width: 100px;
+	text-align: justify;
+}
+
+.table-hover > tbody > tr > .icons {
+	width: 50px;
+	text-align: center;
+}
+
+.glyphicon-edit {
+	color: green;
+}
+
+.glyphicon-remove {
+	color: red;
+	margin-left: 15px;
+}
+

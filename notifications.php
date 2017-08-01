@@ -40,7 +40,7 @@
 		$.ajax({
                 type: "POST",
                 url: "send_email.php",
-                data: {"nick":user, "accept":true},
+                data: {"nick":user, "accept":1},
                 success: function(sol){
                   alert(sol);
                   //jQuery('#users_table_div').html(sol);
@@ -56,7 +56,7 @@
 		$.ajax({
                 type: "POST",
                 url: "send_email.php",
-                data: {"nick":user, "accept":false},
+                data: {"nick":user, "accept":0},
                 success: function(sol){
                   alert(sol);
                   //jQuery('#users_table_div').html(sol);
@@ -67,6 +67,7 @@
                 url: "delete_user.php",
                 data: {"nick":user},
                 success: function(sol){
+					location.reload(true)
                   //alert(sol);
                   //jQuery('#users_table_div').html(sol);
                 }

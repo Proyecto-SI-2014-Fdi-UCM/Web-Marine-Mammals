@@ -1,0 +1,63 @@
+.table-users {
+	margin-top: 300px;
+}
+
+.table-users >.table-hover > thead > tr > td {
+	text-align: justify;
+	font-weight: bold;
+	font-size: 20px;
+	width: 200px;
+	height: 60px;
+}
+
+.table-users >.table-hover > thead > tr > .actions {
+	text-align: center;
+}
+
+.table_drugs >.table-hover > thead > tr > .drug_name {
+	width: 70px;
+}
+
+.table_drugs >.table-hover > thead > tr > .drug_name {
+	width: 70px;
+}
+
+.table_drugs >.table-hover > thead > tr > .drug_description {
+	width: 100px;
+}
+
+.table_drugs >.table-hover > thead > tr > .icons {
+	width: 50px;
+}
+
+.table_drugs >.table-hover > tbody > tr > td {
+	font-size: 15px;
+}
+
+.table_drugs >.table-hover > tbody > tr > .drug_name {
+	width: 70px;
+	text-align: center;
+}
+
+.table_drugs >.table-hover > tbody > tr > .drug_description {
+	width: 100px;
+	text-align: justify;
+}
+
+.table_drugs >.table-hover > tbody > tr > .icons {
+	width: 50px;
+	text-align: center;
+}
+
+.table > thead > tr{
+	/*color default
+	border-bottom: 2px solid #ddd;*/
+
+	border-bottom: 2px solid #6E6E6E;
+}
+.table > tbody > tr > td{
+	/*color default
+	border-bottom: 2px solid #ddd;*/
+
+	/*border-bottom: 1px solid #848484;*/
+}

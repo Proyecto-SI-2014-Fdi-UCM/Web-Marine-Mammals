@@ -1,0 +1,49 @@
+body {
+	background-image: url(../images/seamless_paper_texture.png);
+}
+
+#myCarousel, .carousel .carousel-inner img {
+	height: 200px;
+}
+
+.navbar-nav > .active > a, .navbar-nav > li > a {
+	width: 150px;
+	text-align: center;
+}
+
+.input-group-btn > .btn-primary, .input-group-btn > .btn-primary:hover {
+	background-color: lightgrey;
+	color:black;
+	border-color: transparent;
+}
+
+.glyphicon-log-out {
+	color:white;
+	font-size: 20px;
+	padding-right: 10px;
+	padding-top: 13px;
+}
+
+.contact_photo {
+	margin-top: 5%;
+	margin-left: 20%;
+	float: left;
+}
+
+.contact_information {
+	margin-top: 8%;
+	text-align: center;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+.suggest-element{
+	margin-left:5px;
+	margin-top:5px;
+	width:350px;
+	cursor:pointer;
+}
+
+#suggestions {
+	overflow: visible;
+}

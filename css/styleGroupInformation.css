@@ -1,0 +1,214 @@
+body {
+	background-image: url(../images/seamless_paper_texture.png);
+}
+
+#myCarousel, .carousel .carousel-inner img {
+	height: 200px;
+}
+
+.navbar-nav > li > a {
+	width: 150px;
+	text-align: center;
+}
+
+.input-group-btn > .btn-primary, .input-group-btn > .btn-primary:hover {
+	background-color: lightgrey;
+	color:black;
+	border-color: transparent;
+}
+
+.glyphicon-search {
+	color:black;
+}
+
+.glyphicon-log-out {
+	color:white;
+	font-size: 20px;
+	padding-right: 10px;
+	padding-top: 13px;
+}
+
+.tab {
+	overflow: hidden;
+	background-color: white;
+}
+
+.nav-tabs > .not_current > a {
+	width: 99%;
+	background-color: darkgrey;
+	color: black;
+}
+
+.nav-tabs > .current > a {
+	width: 99%;
+	background-color: grey;
+	color: black;
+}
+
+.nav-stacked {
+	margin-top: 80px;
+	margin-bottom: 100%;
+	width: 80%;
+}
+
+.nav-stacked > .not_current > a {
+	background-color: darkgrey;
+	border-color: transparent;
+	color: black;
+	text-align: center;
+}
+
+.nav-stacked > .current > a {
+	background-color: grey;
+	border-color: transparent;
+	color: black;
+	text-align: center;
+}
+
+.glyphicon-question-sign {
+	font-size: 16px;
+	color: black;
+}
+
+select {
+	width: 100%;
+	height: 33px;
+}
+
+.panel {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.new_drug {
+	margin-top: -4%;
+}
+
+.right-button, .right-button:hover, .right-button:focus {
+	background-color: black;
+	border-color: transparent;
+	color:white !important;
+	text-decoration: none !important;
+	margin-top: -1%;
+}
+
+.glyphicon-floppy-save {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 10%;
+	color: white;
+}
+
+.glyphicon-remove {
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+	color: red;
+}
+
+.glyphicon-edit {
+	margin-left: 5%;
+	color: green;
+}
+
+.inner-panel {
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 96%;
+}
+
+.input-snd {
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 96%;
+	margin-top: 2%;
+}
+
+.dose {
+	margin-top: 10%;
+}
+
+.dose label {
+	padding-left: 1%;
+	margin-top: 5%;
+ }
+
+ label#first-label {
+ 	padding-left: 1%;
+ 	margin-top: 0%;
+ }
+
+ .form-group button {
+ 	margin-top: 2%;
+ }
+
+ button#remove {
+ 	margin-top: 0%;
+ 	margin-right: 1%;
+ }
+
+ .panel-body .specific-note {
+ 	width: 96%;
+ 	margin-left: 2%;
+ }
+
+ .add-dosis {
+ 	padding-left: 3%;
+ }
+ 
+ .general_note {
+	margin-top: 7%;
+ }
+
+ .required-label {
+	padding-right: 0%;
+}
+
+.asterisk {
+	padding-left: 1%;
+}
+
+.references {
+	margin-left: 1%;
+}
+
+.remove_note {
+	margin-right: 2%;
+}
+
+.remove_link {
+	margin-left: 10%;
+}
+
+.dose_list_title {
+	margin-top: 3%;
+}
+
+.table tbody tr td {
+	border-top-color: transparent !important;
+}
+
+.fda {
+	padding-left: 7%;
+}
+
+.chk_ema {
+	padding-left: 4%;
+}
+
+.license {
+	margin-top: 5%;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+  padding-left: 3%;
+}
+
+.save {
+	background-color: black;
+	border-color: transparent;
+	color:white !important;
+	text-decoration: none !important;
+	margin-top: -1%;
+}

@@ -1,0 +1,47 @@
+body{
+  background-image: url(../images/seamless_paper_texture.png);
+}
+
+h1{
+  text-align: center;
+  font-size: 2.5em;
+  font-family:'nouvelle_vagunouvellevagueBlk';
+  color: #4e4e4e;
+}
+
+.btn{
+  margin-top: 30px;
+}
+
+footer{
+	background-image:url(../images/tweed.png);
+	position: absolute;
+	bottom: 0;
+	height: 8%; 
+	width: 100%;
+}
+
+label{
+	text-align: right;
+}
+
+.form{
+	border-style: ridge;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.message_error {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+color: #D8000C;
+text-align: center;
+/*border-color: #2476ba;*/
+/*background-color: #FFBABA;*/
+
+}
+
