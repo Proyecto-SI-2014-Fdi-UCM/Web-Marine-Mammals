@@ -68,7 +68,26 @@ session_start();
   	window.location='show_search_results.php?drug='+drug_name;
   }
 
-
+  function update_state_drug(pos,state) {
+    aux1=document.getElementsByTagName("td");
+    drugname=aux1[pos].innerHTML;
+    
+    $.ajax({
+          type: "POST",
+          url: "update_state_drug.php",
+          data: {"drugname":drugname, "state" : state},
+          success: function(sol){
+            alert(sol);
+            //Se obtiene las letras del nombre del medicamento
+            var res = drugname.split("");
+            //Se pasa como parámetro la primera letra para refrescar la página
+            showDrugFirstLetters(res[0]);
+            
+            
+          }
+      });
+    }
+  
     
 
 </script>

@@ -19,42 +19,51 @@ $result=mysqli_query($con,$sql);
 $contador=0;
 $count=mysqli_num_rows($result);
 if($count>0){
-echo "<table class=\"table table-hover\">";
-echo "<thead>";
-echo "<tr>";
-echo "<td class=\"drug_name\">Name</td>";
-echo "<td class=\"drug_description\">Description</td>";
-echo "<td class=\"icons\">Actions</td>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";        
+    echo "<table class=\"table table-hover\">";
+    echo "<thead>";
+    echo "<tr>";
+    echo "<td class=\"drug_name\">Name</td>";
+    echo "<td class=\"drug_description\">Description</td>";
+    echo "<td class=\"icons\">Actions</td>";
+    echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";        
 
 
-while ($row=mysqli_fetch_row($result)) {
-    $contador=$contador+3;
-    //Si el estado es "ED" poner en color amarillo p. ej.
-    if (!strcmp($row[6],"ED")){
-	   echo "<tr bgcolor='#fcf8e3'>";
-    }
-    else{
-        echo "<tr>";
-    }
+    while ($row=mysqli_fetch_row($result)) {
+        $contador=$contador+3;
+        //Si el estado es "ED" poner en color amarillo p. ej.
+        if (!strcmp($row[6],"ED")){
+    	   echo "<tr bgcolor='#fcf8e3'>";
+        }
+        else{
+            echo "<tr>";
+        }
 
-    echo "<td class=\"drug_name\">".$row[0]."</td>";
-    echo "<td class=\"drug_description\">".$row[1] ."</td>";
-    echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
-    //if($_SESSION['username']=='administrator'){
-    //if(!strcmp($perfil, "A")){
-    $sql1 = "SELECT perfil FROM User WHERE user_name='$username' and password='$password' and checked=1";
-  $result1=mysqli_query($con,$sql1);
-  $perfil=mysqli_fetch_row($result1);
-  if(!strcmp($perfil[0], "A")) {
+        echo "<td class=\"drug_name\">".$row[0]."</td>";
+        echo "<td class=\"drug_description\">".$row[1] ."</td>";
+        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
+        //if($_SESSION['username']=='administrator'){
+        //if(!strcmp($perfil, "A")){
+        $sql1 = "SELECT profile FROM USER WHERE user_name='$username' and password='$password' and checked=1";
+        $result1=mysqli_query($con,$sql1);
+        $profile=mysqli_fetch_row($result1);
 
-        //echo "<a class=\"remove-drug\" href=\"#\" onclick=\"javascrip:deleteDrug('".$contador."')\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
-        echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
+        $sql2 = "SELECT owner FROM DRUG WHERE drug_name='$row[0]'";
+        $result2=mysqli_query($con,$sql2);
+        $owner=mysqli_fetch_row($result2);
+    
+
+        if(!strcmp($profile[0], "A")) {
+            echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
+            //echo '<script>generate_navbar_admin();</script>';
+        }
+        else if ((!strcmp($row[6],"ED"))&&isset($owner)&&(!strcmp($username, $owner[0]))){
+            echo "<a class=\"send-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','RV')\"><span class=\"glyphicon glyphicon-send\"></span></a>";
+        }
         echo '<script>generate_navbar_admin();</script>';
-    }
-    echo "<div class=\"modal fade\" id=\"note_window".$contador."\">";
+        
+        echo "<div class=\"modal fade\" id=\"note_window".$contador."\">";
         echo "<div class=\"modal-dialog\">";
         echo "<div class=\"modal-content\">";
         echo "<div class=\"modal-header\">";
@@ -73,12 +82,11 @@ while ($row=mysqli_fetch_row($result)) {
         echo "</div>";
         echo "</div>";
         echo "</div>";
-    
-    echo "</td>";
-    echo "</tr>";
-}
-echo "</tbody>";
-echo "</table>";
+        echo "</td>";
+        echo "</tr>";
+    }
+    echo "</tbody>";
+    echo "</table>";
 }
 
 // echo "</tbody>";

@@ -26,7 +26,7 @@ if($count==1){
 	//while ($fila = mysqli_fetch_row($resultado)) {
 	while($rows=mysqli_fetch_row($result1)){ 
 		//Se guarda el campo perfil para pasarlo a forMMulary.php
-		$perfil=$rows[9];
+		$profile=$rows[9];
 	}
 	if($count1==1){		
 		//Se pasan datos de sesión

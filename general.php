@@ -386,7 +386,7 @@ function insert_code(){
       $.ajax({
         type: "POST",
         url:"insert_general_information.php",
-        data:{"drug_name":entry_drug_name,"anatomic_group":entry_anatomic_group,"therapeutic_group":entry_therapeutic_group,"code":entry_code,"description":entry_description, "available":entry_available,"license_AEMPS":entry_chk_aemps,"license_EMA":entry_chk_ema,"license_FDA":entry_chk_fda},
+        data:{"drug_name":entry_drug_name,"anatomic_group":entry_anatomic_group,"therapeutic_group":entry_therapeutic_group,"code":entry_code,"description":entry_description, "available":entry_available,"license_AEMPS":entry_chk_aemps,"license_EMA":entry_chk_ema,"license_FDA":entry_chk_fda, "username":"<?php echo $username;?>"},
         success:function(sol){
           //alert(sol);
           location.href = sol;
@@ -415,10 +415,10 @@ function insert_code(){
     
 </head>
 <?php
-$sql1 = "SELECT perfil FROM User WHERE user_name='$username' and password='$password' and checked=1";
+$sql1 = "SELECT profile FROM User WHERE user_name='$username' and password='$password' and checked=1";
   $result1=mysqli_query($con,$sql1);
-  $perfil=mysqli_fetch_row($result1);
-  if(!strcmp($perfil[0], "A")) {?>
+  $profile=mysqli_fetch_row($result1);
+  if(!strcmp($profile[0], "A")) {?>
 
 <!--if($_SESSION['username']=='administrator'){?>-->
   <body onload="generate_navbar_admin()">

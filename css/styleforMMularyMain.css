@@ -49,7 +49,7 @@ body {
 }
 
 .table-hover > thead > tr > td {
-	text-align: center;
+	text-align: left;
 	font-weight: bold;
 	font-size: 20px;
 }
@@ -82,7 +82,7 @@ body {
 
 .table-hover > tbody > tr > .icons {
 	width: 50px;
-	text-align: center;
+	text-align: left;
 }
 
 .glyphicon-edit {
@@ -93,4 +93,8 @@ body {
 	color: red;
 	margin-left: 15px;
 }
+.glyphicon-send {
+	margin-left: 15px;
+}
+
 
