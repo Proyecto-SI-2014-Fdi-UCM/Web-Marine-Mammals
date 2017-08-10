@@ -134,6 +134,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+
       <nav class="navbar navbar-inverse">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -160,11 +161,14 @@
                 Drug pdf
               </a>
             </li>
+
             <li>
-              <a href="./notifications.php">
+              <!--<a href="./notifications.php">
                 <span class="glyphicon glyphicon-flag"></span>
                 Notifications
-              </a>
+              </a>-->
+              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="#">Files pending review</a> </div></div>
+
             </li>
             <li>
               <a href="#">

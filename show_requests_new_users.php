@@ -33,8 +33,8 @@ while ($row=mysqli_fetch_row($result)){
     echo "<td id=\"user".$contador."\" class=\"user\">".$row[0]."</td>";
     echo "<td class=\"email\">".$row[6]."</td>";
     /*echo "<td id=\"accept".$contador."\" class=\"icons\"><a class=\"edit-drug\" name==\"view".$contador."\" href=\"javascript:save_changes(".$contador.")\"><span class=\"glyphicon glyphicon-edit\"></span></a>";*/
-	echo "<td class=\"icons\"><a class=\"btn\" onclick=\"javascript:accept_request('".$row[0]."')\"><span class=\"glyphicon glyphicon-ok\"></span></a>";
-	echo "<td class=\"icons\"><a class=\"btn\" onclick=\"javascript:reject_request('".$row[0]."')\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
+	echo "<td class=\"icons\"><a class=\"btn\" onclick=\"javascript:accept_request('".$row[0]."')\"><span class=\"glyphicon glyphicon-ok\"></span></a> <a class=\"btn\" onclick=\"javascript:reject_request('".$row[0]."')\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
+	//echo "<td class=\"icons\"><a class=\"btn\" onclick=\"javascript:reject_request('".$row[0]."')\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
 
 	// echo "<td class=\"icons switch-toggle well\"><input id=\"accept\" name=\"view\" type=\"radio\" checked> <label for=\"accept\" onclick=\"\">Accept</label>";
 	// echo "<td class=\"icons switch-toggle well\"><input id=\"reject\" name=\"view\" type=\"radio\"> <label for=\"reject\" onclick=\"\">Reject</label>";

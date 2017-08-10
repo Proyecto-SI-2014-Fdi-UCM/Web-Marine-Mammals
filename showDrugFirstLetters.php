@@ -33,7 +33,7 @@ if($count>0){
     while ($row=mysqli_fetch_row($result)) {
         $contador=$contador+3;
         //Si el estado es "ED" poner en color amarillo p. ej.
-        if (!strcmp($row[6],"ED")){
+        if ((!strcmp($row[6],"ED")) ||(!strcmp($row[6],"RV"))){
     	   echo "<tr bgcolor='#fcf8e3'>";
         }
         else{
@@ -45,7 +45,8 @@ if($count>0){
         echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
         //if($_SESSION['username']=='administrator'){
         //if(!strcmp($perfil, "A")){
-        $sql1 = "SELECT profile FROM USER WHERE user_name='$username' and password='$password' and checked=1";
+        //$sql1 = "SELECT profile FROM USER WHERE user_name='$username' and password='$password' and checked=1";
+        $sql1 = "SELECT profile FROM User WHERE user_name='$username' and password='$password' and checked=1";
         $result1=mysqli_query($con,$sql1);
         $profile=mysqli_fetch_row($result1);
 
@@ -53,7 +54,6 @@ if($count>0){
         $result2=mysqli_query($con,$sql2);
         $owner=mysqli_fetch_row($result2);
     
-
         if(!strcmp($profile[0], "A")) {
             echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
             //echo '<script>generate_navbar_admin();</script>';

@@ -55,11 +55,15 @@ include('config_db.php');
   		});
 	}
 
-  function generate_navbar_admin(){
+  /*function generate_navbar_admin(){
     //<a href="./forMMulary.php">
     $("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
     //$("#navbar_admin").html("<a href=\"#\" onclick=\"javascript:show_requests_new_users()\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
+  }*/
+  function generate_navbar_admin() {
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"#\">Files pending review</a> </div></div>");
   }
+  
 </script>
 <body onload="showDrugFirstLetters('<?php echo $_GET['drug']; ?>')"> 
 <!-- <body onload="generate_navbar_admin()">  -->

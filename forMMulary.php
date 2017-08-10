@@ -58,11 +58,15 @@ session_start();
   		});
 	}
 
-  function generate_navbar_admin(){
-    //<a href="./forMMulary.php">
+  /*function generate_navbar_admin(){
     $("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
-    //$("#navbar_admin").html("<a href=\"#\" onclick=\"javascript:show_requests_new_users()\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
+  }*/
+  function generate_navbar_admin() {
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"#\">Files pending review</a> </div></div>");
   }
+  /*function generate_navbar_admin(argument) {
+    $("#navbar_admin").html("<div class=\"dropdown\">  <a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>  <div class=\"dropdown-content\">    <a href=\"#\">Link 1</a>    <a href=\"#\">Link 2</a>    <a href=\"#\">Link 3</a>  </div></div>");
+  }*/
 
   function show_search_results(drug_name){
   	window.location='show_search_results.php?drug='+drug_name;

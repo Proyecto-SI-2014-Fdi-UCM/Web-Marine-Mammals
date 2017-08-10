@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css"/>
     <link rel="stylesheet" href="./css/styleContact.css"/>
 	<link rel="stylesheet" href="./css/jquery-ui-1.8.2.custom.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="./css/styleforMMularyMain.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="./js/jquery-ui-1.8.2.custom.min.js"></script>
@@ -69,11 +70,15 @@
 
 <script>
 
-  function generate_navbar_admin(){
+  /*function generate_navbar_admin(){
     //<a href="./forMMulary.php">
     $("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
     //$("#navbar_admin").html("<a href=\"#\" onclick=\"javascript:show_requests_new_users()\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
+  }*/
+  function generate_navbar_admin() {
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"#\">Files pending review</a> </div></div>");
   }
+  
 
   function show_search_results(drug_name){
   	window.location='show_search_results.php?drug='+drug_name;

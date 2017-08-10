@@ -8,6 +8,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <link rel="stylesheet" href="./css/styleGroupInformation.css"/>
+    <link rel="stylesheet" href="./css/styleforMMularyMain.css"/>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.carousel').carousel( {
@@ -150,9 +151,13 @@
 	  	window.location='show_search_results.php?drug='+drug_name;
 	  }
   
-	  function generate_navbar_admin(){
+	  /*function generate_navbar_admin(){
 	  	$("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
-	  }
+	  }*/
+	  function generate_navbar_admin() {
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"#\">Files pending review</a> </div></div>");
+  }
+  
 
     </script>
 	
