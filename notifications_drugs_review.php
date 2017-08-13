@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Notifications</title>
+    <title>Notifications Drugs Review</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="./css/bootstrap.css"/>
-    <link rel="stylesheet" href="./css/styleforMMularyMain.css"/>
+    <link rel="stylesheet" href="./css/styleDrugsReview.css"/>
     <link rel="stylesheet" href="./css/toggle-switch.css"/>
     <link rel="stylesheet" href="./css/styleNotifications.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -19,10 +19,10 @@
       });
     </script>
     <script>
-        function show_requests_new_users(){
+        function show_drugs_pending_review(){
         $.ajax({
               //type: "POST",
-              url: "show_requests_new_users.php",
+              url: "show_drugs_pending_review.php",
               //data: {},
               success: function(sol){
 				  //alert(sol);
@@ -92,7 +92,7 @@
   }
       </script>
 </head>
-<body onload="show_requests_new_users()">
+<body onload="show_drugs_pending_review()">
 <div class="container">
     <div class="col-md-12 col-xs-12">
       <div id="myCarousel" class="carousel slide" data-ride="carousel" >
@@ -167,7 +167,7 @@
                 <span class="glyphicon glyphicon-flag"></span>
                 Notifications
               </a>-->
-              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="./notifications_drugs_review.php">Files pending review</a> </div></div>
+              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="#">Files pending review</a> </div></div>
 
             </li>
             <li>
@@ -186,7 +186,7 @@
           <a class="logout navbar-right" href="./logout.php">
             <span class="glyphicon glyphicon-log-out"></span>
           </a>
-          <form class="navbar-form navbar-right form-search form-inline" role="search" onsubmit="javascript:showDrugFirstLetters(document.getElementById('drugName').value); return false">
+          <!--<form class="navbar-form navbar-right form-search form-inline" role="search" onsubmit="javascript:showDrugFirstLetters(document.getElementById('drugName').value); return false">
             <div class="input-group">
               <input id="drugName" type="text" class="form-control search-query" placeholder="Search drug"/>
               <span class="input-group-btn">
@@ -195,7 +195,7 @@
                 </button>
               </span>
             </div>
-          </form>
+          </form>-->
         </div>
       </nav>
       </div>

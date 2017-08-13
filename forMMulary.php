@@ -62,7 +62,7 @@ session_start();
     $("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
   }*/
   function generate_navbar_admin() {
-    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"#\">Files pending review</a> </div></div>");
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"./notifications_drugs_review.php\">Files pending review</a> </div></div>");
   }
   /*function generate_navbar_admin(argument) {
     $("#navbar_admin").html("<div class=\"dropdown\">  <a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>  <div class=\"dropdown-content\">    <a href=\"#\">Link 1</a>    <a href=\"#\">Link 2</a>    <a href=\"#\">Link 3</a>  </div></div>");
