@@ -35,8 +35,10 @@ if($count>0){
         $sql1 = "SELECT profile FROM User WHERE user_name='$username' and password='$password' and checked=1";
         $result1=mysqli_query($con,$sql1);
         $profile=mysqli_fetch_row($result1);
-        echo "<a class=\"accept-drug\" href=\"#\" ><span class=\"glyphicon glyphicon-ok\"></span></a>";
+        //echo "<a class=\"accept-drug\" href=\"#\" ><span class=\"glyphicon glyphicon-ok\"></span></a>";
+        echo "<a class=\"accept-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','BQ')\"><span class=\"glyphicon glyphicon-ok\"></span></a>";
         echo "<a class=\"reject-drug\" href=\"#\" ><span class=\"glyphicon glyphicon-remove\"></span></a>";
+
         echo '<script>generate_navbar_admin();</script>';
         
         echo "<div class=\"modal fade\" id=\"note_window".$contador."\">";

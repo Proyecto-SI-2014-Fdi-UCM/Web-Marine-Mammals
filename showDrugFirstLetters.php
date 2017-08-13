@@ -56,12 +56,13 @@ if($count>0){
     
         if(!strcmp($profile[0], "A")) {
             echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
-            //echo '<script>generate_navbar_admin();</script>';
+            echo '<script>generate_navbar_admin();</script>';
         }
         else if ((!strcmp($row[6],"ED"))&&isset($owner)&&(!strcmp($username, $owner[0]))){
             echo "<a class=\"send-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','RV')\"><span class=\"glyphicon glyphicon-send\"></span></a>";
         }
-        echo '<script>generate_navbar_admin();</script>';
+
+        //echo '<script>generate_navbar_admin();</script>';
         
         echo "<div class=\"modal fade\" id=\"note_window".$contador."\">";
         echo "<div class=\"modal-dialog\">";
