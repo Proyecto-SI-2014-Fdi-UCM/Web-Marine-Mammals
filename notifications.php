@@ -37,9 +37,10 @@
         var user_id;
         var user_name;
         var ischecked;*/
+       
 		$.ajax({
                 type: "POST",
-                url: "send_email.php",
+                url: "send_email_register.php",
                 data: {"nick":user, "accept":1},
                 success: function(sol){
                   alert(sol);
@@ -53,9 +54,10 @@
         var user_id;
         var user_name;
         var ischecked;*/
+      
 		$.ajax({
                 type: "POST",
-                url: "send_email.php",
+                url: "send_email_register.php",
                 data: {"nick":user, "accept":0},
                 success: function(sol){
                   alert(sol);

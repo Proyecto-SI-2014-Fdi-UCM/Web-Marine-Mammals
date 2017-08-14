@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/styleDrugsReview.css"/>
     <link rel="stylesheet" href="./css/toggle-switch.css"/>
     <link rel="stylesheet" href="./css/styleNotifications.css"/>
+    <link rel="stylesheet" href="./css/styleDrugsReview.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript">
@@ -32,22 +33,20 @@
         //alert("hola");
       }
 
-    function update_state_drug(pos,state) {
-      aux1=document.getElementsByTagName("td");
-      drugname=aux1[pos].innerHTML;
+    function update_state_drug(drugname,state) {
+      /*aux1=document.getElementsByTagName("td");
+      drugname=aux1[pos].innerHTML;*/
       
       $.ajax({
             type: "POST",
             url: "update_state_drug.php",
             data: {"drugname":drugname, "state" : state},
             success: function(sol){
-              alert(sol);
-              //Se obtiene las letras del nombre del medicamento
-              //var res = drugname.split("");
-              //Se pasa como parámetro la primera letra para refrescar la página
-              show_drugs_pending_review();
-              
-              
+              //if (!$.trim(sol)) {
+                if(state!="ED"){
+                  alert(sol);
+              }
+              show_drugs_pending_review();             
             }
         });
       }
@@ -68,6 +67,30 @@
 
           }
       });
+  }
+
+  function reject_request(drugname,user){  
+        /*var tmp;
+        var user_id;
+        var user_name;
+        var ischecked;*/
+      subject = "Message from Marine Mammals Formmulary to "+user;
+      header = "Marine Mammals Formmulary: Rejection from Marine Mammals Formmulary";
+      message = "The drug you have created is not correct. Please correct the drug information.\n";
+      message = message+ "You can contact us by email at info@marinemammalformulary.com\n";
+      
+    $.ajax({
+                type: "POST",
+                url: "send_email.php",
+                data: {"nick":user,"subject":subject, "header": header, "message": message},
+                success: function(sol){
+                  alert(sol);
+                  update_state_drug(drugname,"ED");
+                  show_drugs_pending_review();             
+                  //jQuery('#users_table_div').html(sol);
+                }
+              });  
+    
   }
       </script>
 </head>

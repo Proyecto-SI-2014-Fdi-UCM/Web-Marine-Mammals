@@ -3,7 +3,7 @@
 session_start();
 include('config_db.php');
 
-$sql = "SELECT * FROM User WHERE checked ='0'";
+$sql = "SELECT * FROM user WHERE checked ='0'";
 //$result=mysql_query($sql,$con);
 $result=mysqli_query($con,$sql);
 $contador=5;

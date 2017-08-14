@@ -42,7 +42,7 @@ if($count>0){
 
         echo "<td class=\"drug_name\">".$row[0]."</td>";
         echo "<td class=\"drug_description\">".$row[1] ."</td>";
-        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
+        echo "<td class=\"icons\">";
         //if($_SESSION['username']=='administrator'){
         //if(!strcmp($perfil, "A")){
         //$sql1 = "SELECT profile FROM USER WHERE user_name='$username' and password='$password' and checked=1";
@@ -53,14 +53,42 @@ if($count>0){
         $sql2 = "SELECT owner FROM DRUG WHERE drug_name='$row[0]'";
         $result2=mysqli_query($con,$sql2);
         $owner=mysqli_fetch_row($result2);
-    
+
+        
         if(!strcmp($profile[0], "A")) {
             echo "<a class=\"remove-drug\" href=\"#note_window".$contador."\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-remove\"></span></a>";
             echo '<script>generate_navbar_admin();</script>';
         }
-        else if ((!strcmp($row[6],"ED"))&&isset($owner)&&(!strcmp($username, $owner[0]))){
+        //Si es editor y es propietario
+        elseif (isset($owner)&&(!strcmp($username, $owner[0]))) {
+            if(!strcmp($row[6],"ED")){
+                echo "<a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
+        
+            echo "<a class=\"send-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','RV')\"><span class=\"glyphicon glyphicon-send\"></span></a>";  
+            }
+            if(!strcmp($row[6],"RV")){
+                echo "<a class=\"send-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+            }
+        }
+        //Si es editor y no es propietario
+        else {
+            if(!strcmp($row[6],"ED")){
+                echo "<a class=\"send-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+            }
+        }
+        //Si la ficha está bloqueada
+        if(!strcmp($row[6],"BQ")){
+            echo "<a class=\"send-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+            echo "<a class=\"suggestions-drug\" href=\"#\"><span class=\"glyphicon glyphicon-comment\"></span></a>";
+        }
+        /*else if ((!strcmp($row[6],"ED"))&&isset($owner)&&(!strcmp($username, $owner[0]))){
+            echo "<a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-edit\"></span></a>";
+        
             echo "<a class=\"send-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','RV')\"><span class=\"glyphicon glyphicon-send\"></span></a>";
         }
+        else if (!strcmp($row[6],"RV")){
+            echo "<a class=\"send-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+        }*/
 
         //echo '<script>generate_navbar_admin();</script>';
         

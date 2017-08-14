@@ -32,50 +32,53 @@
         //alert("hola");
       }
 
-       function save_changes(num){  
-        var tmp;
+	function accept_request(user){  
+        /*var tmp;
         var user_id;
         var user_name;
-        var ischecked;
-
-        for (i = 11; i <= num; i=i+6) {
-            user_id="user"+i; 
-            user_name=document.getElementById(user_id).innerHTML;
-            ischecked=document.getElementById('accept'+i).checked;
-
-            if(ischecked){
-              //var user=document.getElementById('user11').innerHTML;
-              $.ajax({
+        var ischecked;*/
+      $subject = "Message from Marine Mammals Formmulary to $user";
+      $header = "Marine Mammals Formmulary: Confirmation from Marine Mammals Formmulary";
+      $message = "Thank you for registering with us.\n";
+      $message.= "Please click the link below to verify and activate your account.\n";
+      $message.= "http://www.marinemammalformulary.com/confirm_user.php?passkey=$com_code";
+       
+		$.ajax({
                 type: "POST",
                 url: "send_email.php",
-                data: {"user":user_name},
+                data: {"nick":user, "accept":1,"subject":$subject, "header":$header, "message":$message},
                 success: function(sol){
                   alert(sol);
                   //jQuery('#users_table_div').html(sol);
                 }
-              });
-            }
-        }
-
-        for (j = 11; j <= num; j=j+6) {
-            user_id="user"+j; 
-            user_name=document.getElementById(user_id).innerHTML;
-            ischecked=document.getElementById('reject'+j).checked;
-            if(ischecked){
-              //var user=document.getElementById('user11').innerHTML;
-              $.ajax({
+              });   
+    }
+	
+	function reject_request(user){  
+        /*var tmp;
+        var user_id;
+        var user_name;
+        var ischecked;*/
+		$.ajax({
+                type: "POST",
+                url: "send_email.php",
+                data: {"nick":user, "accept":0},
+                success: function(sol){
+                  alert(sol);
+                  //jQuery('#users_table_div').html(sol);
+                }
+              });  
+		$.ajax({
                 type: "POST",
                 url: "delete_user.php",
-                data: {"user":user_name},
+                data: {"nick":user},
                 success: function(sol){
+					location.reload(true)
                   //alert(sol);
                   //jQuery('#users_table_div').html(sol);
                 }
               });
-            }
-        }
-        
-      }
+    }
 
 
   function showDrugFirstLetters(letter){
@@ -137,6 +140,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+
       <nav class="navbar navbar-inverse">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -163,11 +167,14 @@
                 Drug pdf
               </a>
             </li>
+
             <li>
-              <a href="./notifications.php">
+              <!--<a href="./notifications.php">
                 <span class="glyphicon glyphicon-flag"></span>
                 Notifications
-              </a>
+              </a>-->
+              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="./notifications_drugs_review.php">Files pending review</a> </div></div>
+
             </li>
             <li>
               <a href="#">

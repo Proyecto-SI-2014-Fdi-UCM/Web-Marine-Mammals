@@ -2,7 +2,10 @@
   session_start();
   include('config_db.php');
   $user=$_POST["nick"];
-  $accept=$_POST["accept"];
+  //$accept=$_POST["accept"];
+  $subject=$_POST["subject"];
+  $header=$_POST["header"];
+  $message=$_POST["message"];
 $con = mysqli_connect ("localhost","ForMMulary","wfGr42&7","marinemammalformulary_",3306);  
 //$con = mysqli_connect ("localhost","root","","marinemammalformulary_");  
 
@@ -28,28 +31,27 @@ if (mysqli_connect_errno ($con)){
       // $last_name=$_POST['last_name'];
       // $prof=$_POST['profession'];
       // $country=$_POST['country'];
-        $com_code = md5(uniqid(rand()));
+        //$com_code = md5(uniqid(rand()));
         $to = $email;
-		if($accept){
-			 $subject = "Message from Marine Mammals Formmulary to $user";
-			 $header = "Marine Mammals Formmulary: Confirmation from Marine Mammals Formmulary";
-			 $message = "Thank you for registering with us.\n";
-			 $message.= "Please click the link below to verify and activate your account.\n";
-			 $message.= "http://www.marinemammalformulary.com/confirm_user.php?passkey=$com_code";
+		//if($accept){
+			 /*$subject = "Message from Marine Mammals Formmulary to $user";
+			 $header = "Marine Mammals Formmulary: Rejection from Marine Mammals Formmulary";
+			 $message = "The drug you have created is not correct.\n";
+			 $message.= "Please contact us by email at info@marinemammalformulary.com\n";*/
 			 //$message .= "http://localhost/formmulary/confirm_user.php?passkey=$com_code";
 			 //$sentmail = mail("majuma22@hotmail.com",$subject,$message,$header);
 			 $sentmail = mail($to,$subject,$message,$header);
 			 if($sentmail){
 			  // $sql2 = "UPDATE user SET verif_email='$com_code', checked='1' WHERE user_name='$user'";
-			  $sql2 = "UPDATE User SET verif_email='$com_code' WHERE user_name='$user'";
+			  //$sql2 = "UPDATE User SET verif_email='$com_code' WHERE user_name='$user'";
 			  //$result2 = mysql_query($sql2,$con) or die(mysql_error());
-			  $result2 = mysqli_query($con,$sql2) or die(mysqli_error());
-			  echo "Your Confirmation link Has Been Sent To Your Email Address.";
+			  //$result2 = mysqli_query($con,$sql2) or die(mysqli_error());
+			  echo "An Email Has Been Sent To The User.";
 			}
 			else{
-			  echo "Cannot send Confirmation link to your e-mail address";
+			  echo "Failed To Send Email";
 			}
-        }
+        /*}
 		else{
 			$subject = "Message from Marine Mammals Formmulary to $user";
 			$header = "Marine Mammals Formmulary: Message from Marine Mammals Formmulary";
@@ -63,6 +65,6 @@ if (mysqli_connect_errno ($con)){
 			else{
 			    echo "Cannot send Confirmation link to your e-mail address";
 			}
-		}
+		}*/
     }
 ?>
