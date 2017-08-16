@@ -21,6 +21,7 @@
 include('config_db.php');
 //$perfil=$_GET['perfil'];
 session_start();
+$username=$_SESSION['username'];
 ?>
 
 <script>
@@ -62,7 +63,7 @@ session_start();
     $("#navbar_admin").html("<a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>");
   }*/
   function generate_navbar_admin() {
-    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"./notifications_drugs_review.php\">Files pending review</a> </div></div>");
+    $("#navbar_admin").html("<div class=\"dropdown \"> <button class=\"dropbtn \"><span class=\"glyphicon glyphicon-flag\"></span>Notifications</button>  <div class=\"dropdown-content\">    <a href=\"./notifications.php\">Registration Requests</a>    <a href=\"./notifications_drugs_review.php\">Files pending review</a> <a href=\"./notifications_suggestions.php\">Suggestions</a> </div></div>");
   }
   /*function generate_navbar_admin(argument) {
     $("#navbar_admin").html("<div class=\"dropdown\">  <a href=\"./notifications.php\"><span class=\"glyphicon glyphicon-flag\"></span> Notifications</a>  <div class=\"dropdown-content\">    <a href=\"#\">Link 1</a>    <a href=\"#\">Link 2</a>    <a href=\"#\">Link 3</a>  </div></div>");
@@ -92,7 +93,55 @@ session_start();
       });
     }
   
-    
+   /*function show_suggestions_form(){
+    $(document).ready(function(){
+      $("#suggestions_form").modal("show");
+
+   });
+   } */
+function show_suggestions_form(pos){
+  var aux1=document.getElementsByTagName("td");
+    var drug=aux1[pos].innerHTML;
+    $(document).ready(function(){
+      //$(".modal-body #bookId").val( myBookId );
+      
+      $("#suggestions_form").modal("show");
+      $("#suggestions_form #dialog_drugname").val( drug );
+
+   });
+   }
+
+   function send_suggestions (drugname,comment,user){
+      $.ajax({
+          type: "POST",
+          url: "insert_suggestions.php",
+          data: {"drugname":drugname, "comment" : comment},
+          success: function(sol){
+
+            alert(sol);
+            //Se obtiene las letras del nombre del medicamento
+            //var res = drugname.split("");
+            //Se pasa como parámetro la primera letra para refrescar la página
+            //showDrugFirstLetters(res[0]);
+            
+            
+          }
+      }); 
+      
+      subject = "Message to administrator ";
+      header = "You have a suggestion from "+user;
+      message = comment;
+   
+      $.ajax({
+                type: "POST",
+                url: "send_email.php",
+                data: {"user":user,"subject":subject, "header": header, "message": message, "to":"info@marinemammalformulary.com"},
+                success: function(sol){
+                  alert(user);
+                }
+              });  
+
+   }
 
 </script>
 <body onload="showDrugFirstLetters('A')"> 
@@ -249,7 +298,56 @@ session_start();
             
 	        </tbody>
      	</table> -->
-	</div>
+	   </div>
+
+     <!--Formulario de sugerencias-->
+     <div class="modal fade" id="suggestions_form" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Formulario de sugerencias</h3>
+            
+     </div>
+         <div class="modal-body">
+            <form method="post">
+            
+            
+            
+                 <!--<label for="email">Email:</label>
+                 <input id="email" type="email" name="email" placeholder="ejemplo@correo.com" required="" />-->
+
+                 <!--<script type="text/javascript">
+                     var aux1=document.getElementsByTagName("td");
+                    var drug=aux1[0].innerHTML;
+
+                    var test = "Hello";
+                    //document.getElementById("dialog_drugname").value = drug;
+                  document.getElementById("mytext").value = test;
+                  document.getElementById("dialog_drugname").value = drug;
+                </script>-->
+                 <!--<h4 onload="get_drug_name()"></h4>-->
+                 <div id ="title_drug">
+                 <input disabled id="dialog_drugname" value =""></input>
+                 </div>
+                 <!--<label for="mensaje">Mensaje:</label>-->
+                 <div id="text_area">
+                 <textarea id="mensaje" name="mensaje" placeholder="Write your suggestions..." required=""></textarea>
+                 </div>
+          
+            </form>
+     </div>
+         <div id ="send_button"class="modal-footer">
+         
+         <input type="submit" class="btn btn-success" value="Enviar" onclick="send_suggestions(document.getElementById('dialog_drugname').value,document.getElementById('mensaje').value,'<?php echo $username;?>')">
+         
+         
+        <!--<a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>-->
+        </intput>
+     </div>
+      </div>
+   </div>
+</div>
   
     </div>
   </div>

@@ -1,7 +1,7 @@
 <?php
   session_start();
   include('config_db.php');
-  $user=$_POST["nick"];
+  $user=$_POST["user"];
   $accept=$_POST["accept"];
   $subject=$_POST["subject"];
   $header=$_POST["header"];

@@ -11,7 +11,7 @@
 }
 
 .table-users >.table-hover > thead > tr > .actions {
-	text-align: center;
+	text-align: justify;
 }
 
 .table_drugs >.table-hover > thead > tr > .drug_name {
@@ -52,7 +52,6 @@
 .table > thead > tr{
 	/*color default
 	border-bottom: 2px solid #ddd;*/
-
 	border-bottom: 2px solid #6E6E6E;
 }
 .table > tbody > tr > td{

@@ -82,7 +82,7 @@
     $.ajax({
                 type: "POST",
                 url: "send_email.php",
-                data: {"nick":user,"subject":subject, "header": header, "message": message},
+                data: {"user":user,"subject":subject, "header": header, "message": message, "to":""},
                 success: function(sol){
                   alert(sol);
                   update_state_drug(drugname,"ED");
@@ -169,7 +169,7 @@
                 <span class="glyphicon glyphicon-flag"></span>
                 Notifications
               </a>-->
-              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="#">Files pending review</a> </div></div>
+              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="#">Files pending review</a> <a href="./notifications_suggestions.php">Suggestions</a></div></div>
 
             </li>
             <li>
