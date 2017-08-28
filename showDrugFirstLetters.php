@@ -68,18 +68,18 @@ if($count>0){
             echo "<a class=\"send-drug\" href=\"#\" onclick=\"update_state_drug('".$contador."','RV')\"><span class=\"glyphicon glyphicon-send\"></span></a>";  
             }
             if(!strcmp($row[6],"RV")){
-                echo "<a class=\"eye-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+                echo "<a class=\"eye-drug\" href=\"./general_read_mode.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
             }
         }
         //Si es editor y no es propietario
         else {
             if(!strcmp($row[6],"ED")){
-                echo "<a class=\"eye-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+                echo "<a class=\"eye-drug\" href=\"./general_read_mode.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
             }
         }
         //Si la ficha está bloqueada
         if(!strcmp($row[6],"BQ")){
-            echo "<a class=\"eye-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+            echo "<a class=\"eye-drug\" href=\"./general_read_mode.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
             if (!strcmp($profile[0], "E")){
                 echo "<a class=\"suggestions-drug\" href=\"#\" onclick=\"show_suggestions_form('".$contador."')\"><span class=\"glyphicon glyphicon-comment\"></span></a>";
             }

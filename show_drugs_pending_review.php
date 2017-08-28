@@ -28,7 +28,7 @@ if($count>0){
         echo "<tr>";
         echo "<td class=\"drug_name\">".$row[0]."</td>";
         echo "<td class=\"user\">".$row[7] ."</td>";
-        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general_read_mode.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
         //if($_SESSION['username']=='administrator'){
         //if(!strcmp($perfil, "A")){
         //$sql1 = "SELECT profile FROM USER WHERE user_name='$username' and password='$password' and checked=1";

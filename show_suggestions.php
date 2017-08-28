@@ -31,7 +31,7 @@ if($count>0){
         echo "<td class=\"user\">".$row[0] ."</td>";
         echo "<td class=\"commentary\">".$row[2] ."</td>";
         //cambiar la acción para que al pulsar en el icono se muestre la sugerencia completa
-        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
+        echo "<td class=\"icons\"><a class=\"edit-drug\" href=\"./general_read_mode.php?option=Edit&&drug_name=" . $row[0] . "\"><span class=\"glyphicon glyphicon-eye-open\"></span></a>";
         /*$sql1 = "SELECT profile FROM User WHERE user_name='$username' and password='$password' and checked=1";
         $result1=mysqli_query($con,$sql1);
         $profile=mysqli_fetch_row($result1);*/

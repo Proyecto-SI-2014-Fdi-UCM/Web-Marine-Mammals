@@ -112,7 +112,7 @@
 
     subject = "Message from Marine Mammals Formmulary to "+user;
     header = "Marine Mammals Formmulary: Accepted suggestion";
-    message = "Your suggestion has been accepted. You can edit the file in the application\n";
+    message = "Your suggestion has been accepted. You can edit the file in the application.\n";
           
     $.ajax({
                 type: "POST",
@@ -222,7 +222,7 @@
                 <span class="glyphicon glyphicon-flag"></span>
                 Notifications
               </a>-->
-              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="#">Files pending review</a> <a href="./notifications_suggestions.php">Suggestions</a></div></div>
+              <div class="dropdown"> <button class="dropbtn "><span class="glyphicon glyphicon-flag"></span>Notifications</button>  <div class="dropdown-content">    <a href="./notifications.php">Registration Requests</a>    <a href="./notifications_drugs_review.php">Files pending review</a> <a href="./notifications_suggestions.php">Suggestions</a></div></div>
 
             </li>
             <li>
