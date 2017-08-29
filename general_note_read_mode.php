@@ -434,7 +434,7 @@ if($_SESSION['username']=='administrator'){?>
 							  while ($row = mysqli_fetch_row($result)) {
 							  ?>
 								  <textarea disabled id="<?php echo $i;?>" name="general_note" rows="4" cols="80"><?php echo $row[0]; ?></textarea>
-								  <a href="#security_window<?php echo $i;?>" data-toggle="modal"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+								  
 								  <a href="#" onclick="update('<?php echo $i;?>','<?php echo $drug_name;?>','<?php echo $group_name;?>','<?php echo $row[0];?>')"><span class="glyphicon glyphicon-floppy-save pull-right"></span></a>
 								  <div class="modal fade" id="security_window<?php echo $i;?>">
 									<div class="modal-dialog">
@@ -457,20 +457,10 @@ if($_SESSION['username']=='administrator'){?>
 							  <input disabled type="hidden" name="option" value="Edit"/>
 							  </div>
 							 </div>
-								 <div class="row">
-								 <div class="col-xs-12">
-								 <button type="button" style="margin-top:2%;" class="btn btn-primary right-button pull-right" onclick="add_note('<?php echo $number;?>','<?php echo $addFirstTime;?>')">
-									Add note
-									<span class="glyphicon glyphicon-plus"></span>
-								 </button>
-								 </div>
-							 	</div>
+								 
 							 </div>
 							 </div>
-							 <button type="button" class="btn btn-primary right-button pull-right" onclick="update('<?php echo $number;?>','<?php echo $drug_name;?>','<?php echo $group_name;?>')">
-								Save
-								<span class="glyphicon glyphicon-floppy-save"></span>
-							 </button>
+							 
 							<?php
 							}
 							else {

@@ -720,11 +720,11 @@ $sql1 = "SELECT profile FROM User WHERE user_name='$username' and password='$pas
                 <div class="col-xs-8 col-md-7 required-label">
                   <div class="input-group general">
                     
-                    <select class="form-control" id="indexAnatomic<?php echo $index ?>">
+                    <select disabled class="form-control" id="indexAnatomic<?php echo $index ?>">
                         <option>Anatomic Target (1st level ATCvet)</option>
 
                       <?php if ($anatomic == "QA Alimentary tract and metabolism") { ?>
-                        <option selected>QA Alimentary tract and metabolism</option>
+                        <option disabselected>QA Alimentary tract and metabolism</option>
                       <?php } else { ?>
                         <option>QA Alimentary tract and metabolism</option>
                       <?php } ?>

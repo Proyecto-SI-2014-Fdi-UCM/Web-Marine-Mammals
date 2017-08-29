@@ -137,7 +137,7 @@ function show_suggestions_form(pos){
                 url: "send_email.php",
                 data: {"user":user,"subject":subject, "header": header, "message": message, "to":"info@marinemammalformulary.com"},
                 success: function(sol){
-                  alert(user);
+                  //alert(user);
                 }
               });  
 
